@@ -1,9 +1,9 @@
-# Envizi - Dataflow automation with S3 and Universal Data Connector
+# Envizi Dataflow automation - Sending UDC excel to S3 for data ingestion
 
-This article explains the step by step instruction about how to send Universal Data Connector excel to Envizi via S3 Data Service.
+This article explains how to setup Envizi Dataflow automation for sending Universal Data Connector excel to Envizi via S3.
 
-- Universal Data Connector excel file for Accounts and Data can be processed.
-
+- Accounts and Data are documented
+- Group and Location are not yet documented
 
 ## 1. Create Data Service for S3
 
@@ -80,11 +80,44 @@ The Data pipeline is created.
 
 ## 3. Push a UDC excel to S3
 
-1. You can push the UDC excel to S3 using the above collected info (Bucket, access key, etc) from the S3 Data Services.
+Lets use the sample python script to push the [./python/data.xls](./python/data.xls) file into S3 now. 
 
-The envizi should have processed your file.
+1. Update the `Location` column in the [./python/data.xls](./python/data.xls) with the some existing location in your envizi environment.
 
-2. Goto file delivery status screen by Clicking on `File Delivery Status`
+2. Goto the `python` folder of this repo in the terminal window.
+```
+cd python
+```
+
+3. Instal the boto3 for python if it is not available in your system.
+```
+python -m pip install boto3
+```
+
+4. Run the below command with your S3 Data service values.
+```
+export s3_BUCKET_NAME=envizi-client-dataservice-us-prod
+export s3_FOLDER_NAME=client_9608cd600af647
+export s3_ACCESS_KEY=AKIxxxxxxxxxxxxxxx
+export s3_SECRET_KEY=axhHxxxxxxxxxxxxxx
+```
+5. Run the below command to push the file to S3
+```
+python main.py
+```
+
+you may get the output like this..
+```
+S3Handler  ...
+ ENVIZI_S3_AWS_BUCKET_NAME : envizi-client-dataservice-us-prod
+ ENVIZI_S3_AWS_FOLDER_NAME : client_9608cd600af647
+output/results-10122023-110535-725742/POC Account Setup and Data Load_G1_20231012-110543.xlsx is uploaded to envizi-client-dataservice-us-prod  : client_9608cd600af647/POC Account Setup and Data Load_G1_20231012-110543.xlsx
+2023-10-12 11:05:45,747 - INFO:127.0.0.1 - - [12/Oct/2023 11:05:45] "POST /api/turbo/query HTTP/1.1" 200 -
+```
+
+The envizi should have processed your file now.
+
+6. Goto file delivery status screen by Clicking on `File Delivery Status`
 
 <img src="images/img-19.png">
 

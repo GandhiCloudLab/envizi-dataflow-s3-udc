@@ -150,6 +150,7 @@ nCrunchTemp_*
 *.mm.*
 AutoTest.Net/
 
+
 # Web workbench (sass)
 .sass-cache/
 
@@ -352,3 +353,5 @@ MigrationBackup/
 
 .DS_store
 .DS_Store
+
+run.sh
