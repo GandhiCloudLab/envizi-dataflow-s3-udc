@@ -1,6 +1,9 @@
-# Envizi Dataflow - Sending UDC excel to S3 for data ingestion
+# Envizi Dataflow - Sending UDC excel template to S3 for data ingestion
 
 This article explains about how to setup Envizi Dataflow automation for sending Universal Data Connector excel to Envizi via S3 bucket.
+
+#### Authors
+[Jeya Gandhi Rajan M](https://community.ibm.com/community/user/envirintel/people/jeya-gandhi-rajan-m1), [Indira Kalagara](https://community.ibm.com/community/user/envirintel/people/indira-kumari-kalagara1)
 
 
 ## 1. Create Data Service for S3
@@ -78,28 +81,29 @@ The Data pipeline is created.
 
 ## 3. Sending UDC excel to S3
 
-Lets use the sample python script to push the [./python/data.xlsx](./python/data.xlsx) file into S3 now. 
+Lets use the sample python script [./python/main.py](./python/main.py) to push the [./python/data.xlsx](./python/data.xlsx) file into S3 now. 
 
-1. Update the `Location` column in the [./python/data.xlsx](./python/data.xlsx) with the some existing location in your envizi environment.
 
-2. Goto the `python` folder of this repo in the terminal window.
-```
-cd python
-```
+1. Download the `main.py` and `data.xlsx` files into a folder.
 
-3. Instal the boto3 for python if it is not available in your system.
+2. Update the `Location` column in the `data.xlsx` with the some existing location in your envizi environment.
+
+3. Open the linux/mac terminal window and goto folder where you downloaded the `main.py` file.
+
+4. Instal the `boto3` for python if it is not available in your system.
 ```
 python -m pip install boto3
 ```
 
-4. Run the below command with your S3 Data service values.
+5. Run the below command with your S3 Data service values.
 ```
 export s3_BUCKET_NAME=envizi-client-dataservice-us-prod
 export s3_FOLDER_NAME=client_9608cd600af647
 export s3_ACCESS_KEY=AKIxxxxxxxxxxxxxxx
 export s3_SECRET_KEY=axhHxxxxxxxxxxxxxx
+
 ```
-5. Run the below command to push the file to S3
+6. Run the below command to push the file to S3
 ```
 python main.py
 ```
@@ -115,8 +119,15 @@ output/results-10122023-110535-725742/POC Account Setup and Data Load_G1_2023101
 
 The envizi should have processed your file now.
 
-6. Goto file delivery status screen by Clicking on `File Delivery Status`
+7. Goto file delivery status screen by Clicking on `File Delivery Status`
 
 You can see the status of your file.
 
 <img src="images/img-20.png">
+
+
+#Envizi
+#ESG
+#Sustainability
+#sustainability-highlights-home
+
