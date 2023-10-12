@@ -1,9 +1,7 @@
-# Envizi Dataflow automation - Sending UDC excel to S3 for data ingestion
+# Envizi Dataflow - Sending UDC excel to S3 for data ingestion
 
-This article explains how to setup Envizi Dataflow automation for sending Universal Data Connector excel to Envizi via S3.
+This article explains about how to setup Envizi Dataflow automation for sending Universal Data Connector excel to Envizi via S3 bucket.
 
-- Accounts and Data are documented
-- Group and Location are not yet documented
 
 ## 1. Create Data Service for S3
 
@@ -78,11 +76,11 @@ The Data pipeline is created.
 <img src="images/img-19.png">
 
 
-## 3. Push a UDC excel to S3
+## 3. Sending UDC excel to S3
 
-Lets use the sample python script to push the [./python/data.xls](./python/data.xls) file into S3 now. 
+Lets use the sample python script to push the [./python/data.xlsx](./python/data.xlsx) file into S3 now. 
 
-1. Update the `Location` column in the [./python/data.xls](./python/data.xls) with the some existing location in your envizi environment.
+1. Update the `Location` column in the [./python/data.xlsx](./python/data.xlsx) with the some existing location in your envizi environment.
 
 2. Goto the `python` folder of this repo in the terminal window.
 ```
