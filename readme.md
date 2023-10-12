@@ -117,8 +117,6 @@ The envizi should have processed your file now.
 
 6. Goto file delivery status screen by Clicking on `File Delivery Status`
 
-<img src="images/img-19.png">
-
 You can see the status of your file.
 
 <img src="images/img-20.png">
