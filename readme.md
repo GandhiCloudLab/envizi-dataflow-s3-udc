@@ -81,7 +81,7 @@ The Data pipeline is created.
 
 ## 3. Sending UDC excel to S3
 
-Lets use the sample python script [./python/main.py](./python/main.py) to push the [./python/data.xlsx](./python/data.xlsx) file into S3 now. 
+Lets use the sample python script [main.py](./python/main.py) to push the [data.xlsx](./python/data.xlsx) file into S3 now. 
 
 
 1. Download the `main.py` and `data.xlsx` files into a folder.
