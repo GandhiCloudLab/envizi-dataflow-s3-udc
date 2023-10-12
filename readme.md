@@ -1,145 +1,93 @@
-# Deploying Application in IBM Cloud Code Engine
+# Envizi - Dataflow automation with S3 and Universal Data Connector
 
-This article contains the step by step instruction about deploying an application in IBM Cloud Code Engine.
+This article explains the step by step instruction about how to send Universal Data Connector excel to Envizi via S3 Data Service.
 
-- The Application source code is available in Public GitHub repository
-- Container image of the application is going to build by the Code Engine and pushed to the IBM Cloud Container Registry
+- Universal Data Connector excel file for Accounts and Data can be processed.
 
-## 1. Create Project
 
-Need to create a project to deploy any application on it. 
+## 1. Create Data Service for S3
 
-1. Open the Project screen by clicking  `CodeEngine > Projects`
+Need to create a Data Service for S3 bucket.
 
-2. Click on `Create`
+1. Open the Data Services by clicking  `Admin > Data flow Automation`
 
-<img src="images/020-project-1.png">
+<img src="images/img-11.png">
 
-3. Choose the `location`
+The Data services page is opened.
 
-4. Enter the `Project Name`
+2. Click on `Add New Service`
 
-5. Click on `Create`
+<img src="images/img-12.png">
 
-<img src="images/020-project-2.png">
+3. Enter the following.
 
-Project is created.
+- Type : Amazon S3
+- Onwer : Envizi
+- Name : Enter any value
 
-<img src="images/020-project-3.png">
+4. Click on `Save`
 
+<img src="images/img-13.png">
 
-## 2. Container Registry Acccess
+The Data service is created.
 
-Prepare IBM Cloud Container Registry.
+5. Open the Data Services by clicking  `Actions > Manage Connections`
 
-### 2.1. Create namespace in Container Registry
+<img src="images/img-14.png">
 
-Need to have namespace in the Container Registry to store the images.
+The `Manage Connections` page of the data service is opened.
 
-1. Choose the required `Location`
-2. Create an `namespace` in the IBM Cloud Container Registry, if it doesn't exists.
+<img src="images/img-15.png">
 
-<img src="images/001-container-registry.png">
+6. Note down the values of the following in a text file
+- Bucket 
+- Folder
+- UserName
+- Access Key
+- Secret Access Key
 
-### 2.2. Create IBM Cloud API Key
 
-To push/pull the images in Container Registry, access rights are required. Need to create API key in IAM.
+## 2. Create Data Pipeline
 
-1. Open the API Keys screen from `Manage > IAM > API Keys `
-2. Create an API Key
+Need to create Data pipeline to download udc files from S3 bucket and push to Envizi for data ingestion. 
 
-<img src="images/010-api-key.png">
+1. Open the Data Pipeline by clicking  `Data pipelines` from the top links.
 
-### 2.3. Create Registry Access in Code Engine
+<img src="images/img-16.png">
 
-Need to create registry access to push/pull container image. 
+The Data pipelines page is displayed.
 
-1. Open the Registry access secrets screen by clicking  `CodeEngine > Projects > Project Name : TestPythonFlask > Registry access `
+2. Click on `Add New Pipeline`
 
-2. Click on `Create`
+<img src="images/img-17.png">
 
-<img src="images/030-registry-access-1.png">
+3. Enter the following.
 
-3. Enter the below details.
+- Name : Enter any value
+- Target System : Accounts
+- FileName Pattern : Regex pattern need to be given. For Accounts related data the file starts with POC. ex: ^POC.*\.xlsx
+- Data Source : Give the S3 data source that we created before
+- Data Transformer : None. (No need of any transformation.)
 
-- Registry Source : Custom
-- Registry Name : Give any name
-- Registry Server : us.icr.io   (remember we created `gan-ns-dallas` namespace in `Dallas`)
-- UserName : iamapikey
-- Password : API Key (we created in the previous step)
+4. Click on `Save`
 
-4. Click on `Create`
+<img src="images/img-18.png">
 
-<img src="images/030-registry-access-2.png">
+The Data pipeline is created.
 
-Registry access is created.
+<img src="images/img-19.png">
 
-<img src="images/030-registry-access-3.png">
 
+## 3. Push a UDC excel to S3
 
-## 3. Create Application
+1. You can push the UDC excel to S3 using the above collected info (Bucket, access key, etc) from the S3 Data Services.
 
-Create an application in the Project.
+The envizi should have processed your file.
 
-1. Open the Application screen by clicking  `CodeEngine > Projects > Project Name : TestPythonFlask > Application `
+2. Goto file delivery status screen by Clicking on `File Delivery Status`
 
-2. Click on `Create`
+<img src="images/img-19.png">
 
-<img src="images/040-app-1.png">
+You can see the status of your file.
 
-3. Enter the following
-
-- Application Name : Give any name here (test-flask2)
-- Choose  `Source code ` option
-- Source Code URL - Give the github url of your source code. You can give this url https://github.com/GandhiCloudLab/ibm-code-engine-deploy-app as well. It has hello-world python program.
-
-4. Click on `Specify build details`
-
-<img src="images/040-app-2.png">
-
-
-5. Enter `Branch Name`
-6. Click on `Next`
-
-<img src="images/040-app-3.png">
-
-7. Choose `Strategy` as `Cloud Native Build Pack`
-8. Click on `Next`
-
-<img src="images/040-app-4.png">
-
-9. Enter the following
-
-- Registry Server : us.icr.io
-- Registry access secret : Give the registry secrete that has already been created in the previous step.
-- Namespace : Give the namespace that has already been created in the container registry.
-
-10. Click on `Done`
-
-<img src="images/040-app-5.png">
-
-Application is getting deployed
-
-<img src="images/040-app-6.png">
-
-<img src="images/040-app-7.png">
-
-Application is created
-
-<img src="images/040-app-8.png">
-
-Container registry contains the images
-
-<img src="images/002-container-registry-2.png">
-
-
-## 4. Accessing the application
-
-1. Click on `Open URL` from the application
-
-<img src="images/040-app-8.png">
-
-Application is open and it shows the home page.
-
-<img src="images/040-app-9.png">
-
+<img src="images/img-20.png">
