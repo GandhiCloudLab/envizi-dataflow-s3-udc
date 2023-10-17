@@ -88,6 +88,11 @@ Lets use the sample python script [main.py](./python/main.py) to push the [data.
 
 2. Update the `Location` column in the `data.xlsx` with the some existing location in your envizi environment.
 
+Here is the sample content of the excel file.
+
+<img src="images/img-21.png">
+
+
 3. Open the linux/mac terminal window and goto folder where you downloaded the `main.py` file.
 
 4. Instal the `boto3` for python if it is not available in your system.
@@ -121,9 +126,15 @@ The envizi should have processed your file now.
 
 7. Goto file delivery status screen by Clicking on `File Delivery Status`
 
-You can see the status of your file.
+You can see the status of your file and notice that it has got processed.
 
 <img src="images/img-20.png">
+
+
+8. You can see the account got created and available in the Org Hierarchy.
+
+<img src="images/img-22.png">
+
 
 
 #Envizi
