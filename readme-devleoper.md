@@ -19,13 +19,13 @@ Need to create a Data Service for S3 bucket.
 
 1. Open the Data Services by clicking  `Admin > Data flow Automation`
 
-<img src="images/img-11.png">
+![](/labs/images/img-11.png)
 
 The Data services page is opened.
 
 2. Click on `Add New Service`
 
-<img src="images/img-12.png">
+![](/labs/images/img-12.png)
 
 3. Enter the following.
 
@@ -35,17 +35,17 @@ The Data services page is opened.
 
 4. Click on `Save`
 
-<img src="images/img-13.png">
+![](/labs/images/img-13.png)
 
 The Data service is created.
 
 5. Open the Data Services by clicking  `Actions > Manage Connections`
 
-<img src="images/img-14.png">
+![](/labs/images/img-14.png)
 
 The `Manage Connections` page of the data service is opened.
 
-<img src="images/img-15.png">
+![](/labs/images/img-15.png)
 
 6. Note down the values of the following in a text file
 - Bucket 
@@ -61,13 +61,13 @@ Need to create Data pipeline to download udc files from S3 bucket and push to En
 
 1. Open the Data Pipeline by clicking  `Data pipelines` from the top links.
 
-<img src="images/img-16.png">
+![](/labs/images/img-16.png)
 
 The Data pipelines page is displayed.
 
 2. Click on `Add New Pipeline`
 
-<img src="images/img-17.png">
+![](/labs/images/img-17.png)
 
 3. Enter the following.
 
@@ -79,17 +79,16 @@ The Data pipelines page is displayed.
 
 4. Click on `Save`
 
-<img src="images/img-18.png">
+![](/labs/images/img-18.png)
 
 The Data pipeline is created.
 
-<img src="images/img-19.png">
+![](/labs/images/img-19.png)
 
 
 ### 3. Sending UDC excel to S3
 
-Lets use the sample python script [main.py](./python/main.py) to push the [data.xlsx](./python/data.xlsx) file into S3 now. 
-
+Lets use the sample python script [main.py](https://github.com/GandhiCloudLab/envizi-dataflow-sending-udc-excel-to-s3-blog/blob/main/python/main.py) to push the [data.xlsx](https://github.com/GandhiCloudLab/envizi-dataflow-sending-udc-excel-to-s3-blog/blob/main/python/data.xlsx) file into S3 now. 
 
 1. Download the `main.py` and `data.xlsx` files into a folder.
 
@@ -97,7 +96,7 @@ Lets use the sample python script [main.py](./python/main.py) to push the [data.
 
 Here is the sample content of the excel file.
 
-<img src="images/img-21.png">
+![](/labs/images/img-21.png)
 
 
 3. Open the linux/mac terminal window and goto folder where you downloaded the `main.py` file.
@@ -135,12 +134,13 @@ The envizi should have processed your file now.
 
 You can see the status of your file and notice that it has got processed.
 
-<img src="images/img-20.png">
+![](/labs/images/img-20.png)
 
 
 8. You can see the account got created and available in the Org Hierarchy.
 
-<img src="images/img-22.png">
+![](/labs/images/img-22.png)
+![](/labs/images/001-modules.png)
 
 
 ## Summary
